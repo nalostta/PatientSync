@@ -1,0 +1,25 @@
+{
+  "name": "g2-starter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "api": "node local-server/server.js",
+    "dev": "node scripts/dev-all.mjs",
+    "dev:web": "vite --host 0.0.0.0",
+    "build": "tsc && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "simulator": "node node_modules/@evenrealities/evenhub-simulator/bin/index.js http://localhost:5173 --automation-port 9898",
+    "simulator:glow": "node node_modules/@evenrealities/evenhub-simulator/bin/index.js http://localhost:5173 --glow --automation-port 9898",
+    "pack": "npm run build && evenhub pack app.json dist -o g2-starter.ehpk"
+  },
+  "dependencies": {
+    "@evenrealities/even_hub_sdk": "0.0.10"
+  },
+  "devDependencies": {
+    "@evenrealities/evenhub-cli": "0.1.13",
+    "@evenrealities/evenhub-simulator": "0.7.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.2"
+  }
+}
