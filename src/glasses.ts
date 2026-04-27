@@ -547,7 +547,6 @@ function formatSection(runtime: GlassesState) {
   if (runtime.section === 'notes') {
     const notes = runtime.state.notes
       .filter(item => item.patientId === patient.id)
-      .slice(-3)
       .reverse()
     const doctorName = (doctorId: string) => {
       const doctor = runtime.state.doctors.find(item => item.id === doctorId)
@@ -555,7 +554,7 @@ function formatSection(runtime: GlassesState) {
     }
 
     return [
-      'Recent Notes',
+      `All Notes (${notes.length})`,
       ...notes.map(item => `${doctorName(item.doctorId)}: ${item.text}`),
       notes.length === 0 ? 'No notes.' : '',
     ].filter(Boolean)
